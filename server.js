@@ -7,7 +7,10 @@ const server = express();
 server.use(express.json());
 
 server.get('/accounts', (req, res) => {
+    let query = req.query
     db('accounts')
+    .orderBy(query.sortby || 'name', query.sortdir)
+    .limit(query.limit)
         .then(accounts => {
             res.status(200).json(accounts);
         })

@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "rollback": "knex migrate:rollback --env production",
+    "migrate": "knex migrate:latest --env production",
+    "seed": "knex seed:run --env production",
   },
   "repository": "https://github.com/LambdaSchool/webdb-i-challenge",
   "dependencies": {
     "express": "^4.17.1",
     "knex": "^0.19.1",
+    "pg": "^7.12.1",
     "sqlite3": "^4.0.9"
   },
   "devDependencies": {
