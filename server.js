@@ -14,7 +14,8 @@ server.get('/accounts', (req, res) => {
         .then(accounts => {
             res.status(200).json(accounts);
         })
-        .catch(() => {
+        .catch(err => {
+            console.log(err)
             res.status(500).json({ message: 'Internal server error.' });
         });
 });
