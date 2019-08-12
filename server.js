@@ -6,6 +6,9 @@ const server = express();
 
 server.use(express.json());
 
+server.get('/', (req, res) => {
+    res.status(200).json("Server is up!");
+});
 server.get('/accounts', (req, res) => {
     let query = req.query
     db('accounts')
